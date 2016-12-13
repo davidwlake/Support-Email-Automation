@@ -1,8 +1,17 @@
+///////////////////////////////////
+//Authors: David Lake & Patrick Murphy
+//
+//Last Modified: 12.13.16 David Lake
+//
+////////////////////////////////////
+
 window.onload = function () {
+// Variable Initialization   
 	var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell "), i = 0;
 	var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true);
 	
+// Returns size of an array of objects
 	Object.size = function (obj) {
         var size = 0, key;
         for (key in obj) {
@@ -11,6 +20,8 @@ window.onload = function () {
         return size;
 	};
 	
+
+// Select Contact if Contact Name, Parent Name, Email Address
 	for (i = 0; i < dataBuffer.length; i++) {
         if(doesMatch(dataBuffer[i].innerText,localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText, localStorage.getItem("accountName")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("emailAddress"))) {
             dataBuffer[i].dispatchEvent(changeEvent);
@@ -19,11 +30,9 @@ window.onload = function () {
     }
 
     
-  
+// Select Contact if Contact Name, Service Name, Email Address  
     if(i == Object.size(dataBuffer)){  	
-      
     	for (i = 0; i < dataBuffer.length; i++) {
-           // alert(dataBuffer[i].innerText + ", "+dataBuffer[i+3].innerText +" ," + dataBuffer[i+8].innerText);
         	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("serviceAccount")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("emailAddress"))) {
             	dataBuffer[i].dispatchEvent(changeEvent);
                 break;
@@ -31,11 +40,9 @@ window.onload = function () {
     	}
     }
     
-    
+// Select Contact if Contact Name, Account Name   
     if(i == Object.size(dataBuffer)){  	
-      
     	for (i = 0; i < dataBuffer.length; i++) {
-           // alert(dataBuffer[i].innerText + ", "+dataBuffer[i+3].innerText +" ," + dataBuffer[i+8].innerText);
         	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("accountName"))) {
             	alert("Account Found on Parent level with Different Email");
                 dataBuffer[i].dispatchEvent(changeEvent);
@@ -44,8 +51,8 @@ window.onload = function () {
     	}
     } 
     
+// Select Contact if Contact Name, Service Name
     if(i == Object.size(dataBuffer)){  	
-      
     	for (i = 0; i < dataBuffer.length; i++) {
            // alert(dataBuffer[i].innerText + ", "+dataBuffer[i+3].innerText +" ," + dataBuffer[i+8].innerText);
         	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("serviceAccount"))) {
@@ -55,6 +62,8 @@ window.onload = function () {
         	} 
     	}
     }
+
+ //If No Contact Found   
     if(i == Object.size(dataBuffer)){
     	alert("No Account Found:\nPlease Select the Case Contact Below");
         window.frames[1].document.getElementById("Contact_body").scrollIntoView();
@@ -62,6 +71,7 @@ window.onload = function () {
 };
 
 
+// Returns true is either str1.includes(str2) or str2.includes(str1)
 function doesMatch(str1, str2) {
     if (str2 === null || str1 === null) {
         return false;
