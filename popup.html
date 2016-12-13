@@ -1,0 +1,37 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Inbox2SF</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        width:250px;
+
+      }
+
+      button {display:block;margin-left:auto;margin-right:auto;margin-top:10px;width:200px;height:40px;background-color:#104caf;color:#fff;text-align:center;}
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <button id="populate">Populate Case</button>
+    <button id="email">Send Email</button>
+    <button id="createCase">Create Case</button>
+    <script type="text/javascript" src="popup.js"></script>
+  </body>
+</html>
+
