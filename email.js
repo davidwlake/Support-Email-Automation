@@ -28,6 +28,7 @@ function writeEmail() {
     if(name.includes("Internal")){
         name = localStorage.getItem("caseName");
         document.getElementById('p24').value = localStorage.getItem("email");
+        nameBuffer = name.split(' ');
     }else{
         first = nameBuffer[0];
     }
