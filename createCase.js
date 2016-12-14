@@ -21,13 +21,10 @@ if (document.URL.includes("/apex/MLCSelectionPage?")){
     document.getElementsByName('j_id0:form:j_id8:j_id38:j_id40')[0].value = "Body Goes Here";
     document.getElementsByName('j_id0:form:j_id8:j_id38:j_id42')[0].value = "Subject Goes Here";
     document.getElementsByName('j_id0:form:j_id8:j_id38:j_id53')[0].value = "DDC-Websites";
-    document.getElementsByName('j_id0:form:j_id8:j_id38:j_id53')[0].dispatchEvent(changeEvent, document.getElementsByName('j_id0:form:j_id8:j_id38:j_id57')[0].value = "Composer");
-    document.getElementsByName('j_id0:form:j_id8:j_id38:j_id57')[0].dispatchEvent(changeEvent, document.getElementsByName('j_id0:form:j_id8:j_id38:j_id61')[0].value = "Composer Tools", document.getElementById('j_id0:form:j_id8:j_id63:bottom:j_id65').click()); 
+    document.getElementsByName('j_id0:form:j_id8:j_id38:j_id53')[0].dispatchEvent(changeEvent, setTimeout(function(){ document.getElementsByName('j_id0:form:j_id8:j_id38:j_id57')[0].value = "Composer"; document.getElementsByName('j_id0:form:j_id8:j_id38:j_id57')[0].dispatchEvent(changeEvent,setTimeout(writeSub, 500));}, 500));
+    
 }
 
-if (document.URL.includes("dealertrack-production.my.salesforce.com")){ 
-    document.getElementsByName("edit")[0].click();
-}
 
 function start(){
 	localStorage.setItem("accountName", "spptdemo1" );
@@ -56,7 +53,7 @@ function SRPage(){
 
 	for (i = 0; i < dataBuffer.length; i++) {
         if (dataBuffer[i].innerText == localStorage.getItem("caseContact") && dataBuffer[i+4].innerText == localStorage.getItem("parentAccount") && dataBuffer[i+5].innerText == localStorage.getItem("emailAddress")) {
-            alert(i);
+          //  alert(i);
             dataBuffer[i].getElementsByTagName("a")[0].click();
             break;
         }
@@ -86,3 +83,7 @@ function SRPage(){
 }// End If
 }
 
+function writeSub(){
+   document.getElementsByName('j_id0:form:j_id8:j_id38:j_id61')[0].value = "Composer Tools" ; 
+   document.getElementById('j_id0:form:j_id8:j_id63:bottom:j_id65').click();
+}
