@@ -11,7 +11,12 @@ function email() {
     });
 }
 
+function createCase(){
+  chrome.tabs.executeScript({
+        file: 'createCase.js'
+    });}
 
+document.getElementById('createCase').addEventListener('click', createCase);
 document.getElementById('populate').addEventListener('click', populate);
 document.getElementById('email').addEventListener('click', email);
 
