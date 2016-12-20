@@ -23,13 +23,17 @@ function writeEmail() {
 
     var first = nameBuffer[0]; 
     var title = '';
-
+    var emails = localStorage.getItem("email").split(",");
+    var emailLine = "";
+    for(var i = 0; i < emails.length; i++){
+         emailLine += emails[i] + "; ";
+    } 
+    document.getElementById('p24').value = emailLine;
 //Flag to mark case as Internal
     if(name.includes("Internal")){
         name = localStorage.getItem("caseName");
-        document.getElementById('p24').value = localStorage.getItem("email");
+        nameBuffer = name.split(' ');
         first = nameBuffer[0];
-
     }else{
         first = nameBuffer[0];
     }
