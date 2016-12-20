@@ -45,8 +45,7 @@ function writeEmail() {
         }
     }
     
-    var confirmation = "Hi " + first + ", \n\nThank you for contacting Dealer.com Dealer Support.\n\nWe have received your email and created support case: " + caseNumber + ".\nFor case status updates please respond directly to this email. For immediate assistance please contact us at 888-895-2994.\n\nFor case status updates please respond directly to this email.\n\nThank you for your continued partnership,\n\n Dealer.com Support";
-    
+    var confirmation = "Hello " + first + ", \n\nThank you for contacting Dealer.com Dealer Support.\n\nWe have received your email and created support case: " + caseNumber + ".\nFor case status updates please respond directly to this email. For immediate assistance please contact us at 888-895-2994.\n\nFor case status updates please respond directly to this email.\n\nThank you for your continued partnership,\n\n Dealer.com Support";
     document.getElementById('p6').value = "Re: " + title + " (Case #" + caseNumber + ")";
     document.getElementById('p7').value = confirmation;
 
