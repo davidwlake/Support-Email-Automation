@@ -60,7 +60,7 @@ function getInput() {
 // Debugging Alert
     //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
     testMiniMag();
-    //document.getElementsByName('edit')[0].click();
+    document.getElementsByName('edit')[0].click();
 
 }
 
@@ -97,10 +97,10 @@ function contactLine(str){
 
     if(testBuffer[1].includes("|")){
         var emailsBuffer = testBuffer[1].split("|"); //.substring(0, testBuffer[1].length - 2)
-        emailsBuffer[0] = emailsBuffer[0].substring(0, emailsBuffer[0].length - 1);
+        emailsBuffer[0] = emailsBuffer[0].replace(">", "");
         localStorage.setItem("email", emailsBuffer);
     }else{
-        testBuffer[1] = testBuffer[1].substring(0, testBuffer[1].length - 2);
+        testBuffer[1] = testBuffer[1].replace(">", "");
         localStorage.setItem("email", testBuffer[1]);
     }
 
