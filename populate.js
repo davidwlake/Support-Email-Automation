@@ -1,7 +1,7 @@
 ///////////////////////////////////
 //Authors: David Lake & Patrick Murphy
 //
-//Last Modified: 12.12.16 David Lake
+//Last Modified: 12.20.16 David Lake
 //
 ////////////////////////////////////
 minMag = [
@@ -33,11 +33,21 @@ function getInput() {
     while (testLine(buffer[i]) === false) {
         i++;
     }
+    if(buffer[i].includes("Internal") || buffer[i].includes("internal")){
+        localStorage.setItem("internal", buffer[i]);
+        i++;
+        while (testLine(buffer[i]) === false) {
+            i++;
+        }
+    } else {
+        localStorage.setItem("internal", "False");
+    }
+    
     localStorage.setItem("accountName", buffer[i]);
-    i++;
+    i ++;
 
     while (testLine(buffer[i]) === false) {
-        i++;
+        i ++;
     }
     localStorage.setItem("serviceAccount", buffer[i]);
     i++;
@@ -46,14 +56,6 @@ function getInput() {
         i++;
     }
     contactLine(buffer[i]);
-
-    if(localStorage.getItem("caseContact").includes("Internal")){
-        i++;
-        while (testLine(buffer[i]) === false) {
-            i++;
-        }
-        localStorage.setItem("caseName", buffer[i]);
-    }
     
     localStorage.setItem("subject", document.getElementById('cas14_ileinner').innerText);
 
@@ -91,17 +93,37 @@ function testMiniMag(){
     } 
 }
 
-function contactLine(str){
-    var testBuffer = str.split("<");
-    localStorage.setItem("caseContact", testBuffer[0]);
 
-    if(testBuffer[1].includes("|")){
-        var emailsBuffer = testBuffer[1].split("|"); //.substring(0, testBuffer[1].length - 2)
-        emailsBuffer[0] = emailsBuffer[0].replace(">", "");
-        localStorage.setItem("email", emailsBuffer);
-    }else{
-        testBuffer[1] = testBuffer[1].replace(">", "");
-        localStorage.setItem("email", testBuffer[1]);
+function contactLine(str){
+// "Name" <email>
+// "Name"<email>
+// "Name" eamil
+
+    var emails = ""; 
+    var bufferLine = str.split("|");
+    //console.log(bufferLine[0].replace("<", " "));
+    bufferLine[0] = bufferLine[0].replace("<", " ");
+    bufferLine[0] = bufferLine[0].replace(">", "");
+    
+    firstBlock = bufferLine[0].split(" ");
+    firstName = firstBlock[0];
+    lastName = firstBlock[1];
+
+    contactEmail = firstBlock[2];
+    
+    if(bufferLine[1] != null){
+        for(var i = 1; i < bufferLine.length; i++){
+            emails += bufferLine[i] + "; "; 
+        }// End For Loop
+        
+        localStorage.setItem("emails", emails);
+    } else{
+        localStorage.setItem("emails", "");
     }
+    localStorage.setItem("firstName", firstName );
+    localStorage.setItem("lastName", lastName );
+    localStorage.setItem("contactEmail", contactEmail);
+    temp = firstName + " " + lastName;
+    localStorage.setItem("caseContact", temp);
 
 }
