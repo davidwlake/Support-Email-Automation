@@ -20,6 +20,8 @@ function writeEmail() {
     var subjectBuffer = subject.split(' ');
     var title = '';
     var emails = localStorage.getItem("emails");
+    var support = "support@dealer.com:DDC-Support";
+    document.getElementById('p26').value = support;
 
     
     if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
