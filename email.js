@@ -17,25 +17,13 @@ function writeEmail() {
     var caseNumber = document.getElementById('p3').value;
     var name = localStorage.getItem("caseContact");
     var subject = localStorage.getItem('subject');
-
-    var nameBuffer = name.split(' ');
     var subjectBuffer = subject.split(' ');
-
-    var first = nameBuffer[0]; 
     var title = '';
-    var emails = localStorage.getItem("email").split(",");
-    var emailLine = "";
-    for(var i = 0; i < emails.length; i++){
-         emailLine += emails[i] + "; ";
-    } 
-    document.getElementById('p24').value = emailLine;
-//Flag to mark case as Internal
-    if(name.includes("Internal")){
-        name = localStorage.getItem("caseName");
-        nameBuffer = name.split(' ');
-        first = nameBuffer[0];
-    }else{
-        first = nameBuffer[0];
+    var emails = localStorage.getItem("emails");
+
+    
+    if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
+        document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
     }
 
     subjectBuffer.shift();
@@ -45,7 +33,7 @@ function writeEmail() {
         }
     }
     
-    var confirmation = "Hello " + first + ", \n\nThank you for contacting Dealer.com Dealer Support.\n\nWe have received your email and created support case: " + caseNumber + ".\nFor case status updates please respond directly to this email. For immediate assistance please contact us at 888-895-2994.\n\nFor case status updates please respond directly to this email.\n\nThank you for your continued partnership,\n\n Dealer.com Support";
+    var confirmation = "Hello " + localStorage.getItem("firstName") + ", \n\nThank you for contacting Dealer.com Dealer Support.\n\nWe have received your email and created support case: " + caseNumber + ".\nFor case status updates please respond directly to this email. For immediate assistance please contact us at 888-895-2994.\n\nFor case status updates please respond directly to this email.\n\nThank you for your continued partnership,\n\n Dealer.com Support";
     document.getElementById('p6').value = "Re: " + title + " (Case #" + caseNumber + ")";
     document.getElementById('p7').value = confirmation;
 

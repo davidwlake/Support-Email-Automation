@@ -1,7 +1,7 @@
 ///////////////////////////////////
 //Authors: David Lake & Patrick Murphy
 //
-//Last Modified: 12.13.16 David Lake
+//Last Modified: 12.20.16 David Lake
 //
 ////////////////////////////////////
 
@@ -23,7 +23,7 @@ window.onload = function () {
 
 // Select Contact if Contact Name, Parent Name, Email Address
 	for (i = 0; i < dataBuffer.length; i++) {
-        if(doesMatch(dataBuffer[i].innerText,localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText, localStorage.getItem("accountName")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("emailAddress"))) {
+        if(doesMatch(dataBuffer[i].innerText,localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText, localStorage.getItem("accountName")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("contactEmail"))) {
             dataBuffer[i].dispatchEvent(changeEvent);
             break;
         }
@@ -33,7 +33,7 @@ window.onload = function () {
 // Select Contact if Contact Name, Service Name, Email Address  
     if(i == Object.size(dataBuffer)){  	
     	for (i = 0; i < dataBuffer.length; i++) {
-        	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("serviceAccount")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("emailAddress"))) {
+        	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("serviceAccount")) && doesMatch(dataBuffer[i+8].innerText,localStorage.getItem("contactEmail"))) {
             	dataBuffer[i].dispatchEvent(changeEvent);
                 break;
         	} 
