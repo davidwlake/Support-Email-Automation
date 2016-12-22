@@ -26,6 +26,8 @@ function writeEmail() {
     
     if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
         document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
+    } else {
+        document.getElementById('p24').value = emails;
     }
 
     subjectBuffer.shift();
