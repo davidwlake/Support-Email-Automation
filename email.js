@@ -22,11 +22,7 @@ function writeEmail() {
     var emails = localStorage.getItem("emails");
     var support = "support@dealer.com:DDC-Support";
     document.getElementById('p26').value = support;
-
-    
-    if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
-        document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
-    }
+    document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
 
     subjectBuffer.shift();
     for (var i = 0; i < subjectBuffer.length; i++) {
