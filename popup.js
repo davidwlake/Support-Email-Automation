@@ -16,9 +16,16 @@ function createCase(){
         file: 'createCase.js'
     });}
 
+function magEmail(){
+  chrome.tabs.executeScript({
+        file: 'magEmail.js'
+    });}
+
 document.getElementById('createCase').addEventListener('click', createCase);
 document.getElementById('populate').addEventListener('click', populate);
 document.getElementById('email').addEventListener('click', email);
+document.getElementById('magEmail').addEventListener('click', magEmail);
+
 
 /*
 

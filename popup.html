@@ -15,6 +15,15 @@
         width:250px;
 
       }
+        .innerBox{
+            margin: 0 0 0 25px;
+        }
+        .halfbtn {
+            width: 43%;
+            top: 60%;
+            left: 60%;
+            display: inline;
+        }
 
       button {display:block;margin-left:auto;margin-right:auto;margin-top:10px;width:200px;height:40px;background-color:#104caf;color:#fff;text-align:center;}
     </style>
@@ -29,7 +38,10 @@
   </head>
   <body>
     <button id="populate">Populate Case</button>
-    <button id="email">Send Email</button>
+    <div class="innerBox">  
+        <button id="email" class="halfbtn">Retail Email</button>
+        <button id="magEmail" class="halfbtn">Mag Email</button>
+    </div>    
     <button id="createCase">Create Case</button>
     <script type="text/javascript" src="popup.js"></script>
   </body>
