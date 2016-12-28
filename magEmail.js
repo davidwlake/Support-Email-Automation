@@ -20,7 +20,7 @@ function writeEmail() {
     var subjectBuffer = subject.split(' ');
     var title = '';
     var emails = localStorage.getItem("emails");
-    var support = "support@dealer.com:DDC-Support";
+    var support = "majoraccountsupport@dealer.com:DDC-Support MAG";
     document.getElementById('p26').value = support;
 
     document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
