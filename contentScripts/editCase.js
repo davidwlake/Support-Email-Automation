@@ -15,7 +15,8 @@ if (localStorage.getItem("internal").includes("Internal") || localStorage.getIte
     }
 } else {
     document.getElementById('cas3').value = localStorage.getItem("caseContact");
-    document.getElementById('cas3_lkwgt').dispatchEvent(changeEvent);
+    document.getElementById('cas3_lkwgt').click();
+    localStorage.setItem("runTime", "Second");
 }
 
  
