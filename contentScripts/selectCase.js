@@ -1,5 +1,8 @@
-	var i = 0;
-	var dataBuffer = document.getElementsByClassName("dataCell");
+var state = localStorage.getItem("toRun");
+if (state == 1){	
+
+var i = 0;
+var dataBuffer = document.getElementsByClassName("dataCell");
 
 
 	Object.size = function(obj) {
@@ -21,3 +24,4 @@
       alert("Case Number: "+localStorage.getItem("caseNumber") +" Not Found");   
     }
 
+}

@@ -1,3 +1,5 @@
+var state = localStorage.getItem("toRun");
+if (state == 1){	
 var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
 
@@ -16,7 +18,7 @@ if (localStorage.getItem("internal").includes("Internal") || localStorage.getIte
 } else {
     document.getElementById('cas3').value = localStorage.getItem("caseContact");
     document.getElementById('cas3_lkwgt').click();
-    localStorage.setItem("runTime", "Second");
+    
 }
-
- 
+localStorage.setItem("runTime", "Second");
+}

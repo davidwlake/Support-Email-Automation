@@ -1,3 +1,6 @@
+var state = localStorage.getItem("toRun");
+
+if( state == 1){
 if (localStorage.getItem("queue").includes("MAG")) {
     writeMagEmail();
 } else {
@@ -55,3 +58,7 @@ function writeRetail() {
     document.getElementById('p6').value = "Re: " + title + " (Case #" + caseNumber + ")";
     document.getElementById('p7').value = confirmation;
 }
+    
+  
+}
+

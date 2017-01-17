@@ -1,3 +1,6 @@
+var state = localStorage.getItem("toRun");
+if (state == 1){	
+document.addEventListener('keyup', doc_keyUp, false);
 
 var runTime = localStorage.getItem("runTime");
 
@@ -10,10 +13,10 @@ if(runTime.includes("Second")){
 }
 
 if(runTime.includes("Third")){
-    alert("Test");
    localStorage.setItem("runTime", "Done"); 
    document.getElementsByName('newEmail')[0].click(); 
 }
+
 
 function getValues() {
 minMag = [
@@ -158,5 +161,14 @@ function assignCase(){
         localStorage.setItem("runTime", "Done");
         document.getElementsByName('newEmail')[0].click();
     }
+    
+}
+    
+function doc_keyUp(e) {
+    // Downarrow and the ctrl key at the same time
+    if (e.ctrlKey && e.keyCode == 39) {
+        window.open("https://dealertrack-production.my.salesforce.com/500", '_blank');
+    }
+}
     
 }

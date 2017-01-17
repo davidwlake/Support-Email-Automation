@@ -5,6 +5,8 @@
 //
 ////////////////////////////////////
 
+var state = localStorage.getItem("toRun");
+if( state == 1){
 window.onload = function () {
 // Variable Initialization   
 	var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell "), i = 0;
@@ -82,4 +84,5 @@ function doesMatch(str1, str2) {
             return false;
         }
     }
+}
 }
