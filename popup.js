@@ -1,3 +1,4 @@
+
 function populate() {
     chrome.tabs.executeScript({
         file: 'populate.js'
@@ -6,25 +7,49 @@ function populate() {
 
 
 function email() {
+
     chrome.tabs.executeScript({
         file: 'email.js'
     });
+    alert("Hello! I am an alert box!!");
+
 }
 
-function createCase(){
-  chrome.tabs.executeScript({
-        file: 'createCase.js'
-    });}
+
 
 function magEmail(){
   chrome.tabs.executeScript({
         file: 'magEmail.js'
-    });}
+    });
 
-document.getElementById('createCase').addEventListener('click', createCase);
+}
+
+function change(){
+  chrome.tabs.executeScript({
+        file: 'change.js'
+    });
+
+}
+
+
+
 document.getElementById('populate').addEventListener('click', populate);
+
 document.getElementById('email').addEventListener('click', email);
 document.getElementById('magEmail').addEventListener('click', magEmail);
+
+document.getElementById('toRun').addEventListener('click', change);
+
+
+
+
+
+/* document.getElementById('createCase').addEventListener('click', createCase);
+function createCase(){
+  chrome.tabs.executeScript({
+        file: 'createCase.js'
+    });} */
+
 
 
 /*

@@ -6,19 +6,46 @@
      "version": "1.0",
 
      "permissions": [
-         "tabs", "<all_urls>"
+         "tabs", "<all_urls>", "notifications"
      ],
      
      "content_scripts": [
-     {
+    {
         "matches": ["https://dealertrack-production.my.salesforce.com/_ui/common/data/LookupPage?*"],
         "js": ["contentScripts/selectUser.js"]
-     },
-     {
+    },
+    {
         "matches": ["https://dealertrack-production.my.salesforce.com/*/e?retURL=%*"],
         "js": ["contentScripts/editCase.js"]
-      }
+    },
+      {
+        "matches": ["https://dealertrack-production.my.salesforce.com/ui/setup/Setup"],
+        "js": ["contentScripts/searchCase.js"]
+      },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults*"],
+            "js": ["contentScripts/selectCase.js"]
+    },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/*"],
+            "js": ["contentScripts/runCase.js"]
+    },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/*/a?retURL=*"],
+            "js": ["contentScripts/assignCase.js"]
+    },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/core/email/author/EmailAuthor?p*"],
+            "js": ["contentScripts/writeEmail.js"]
+    },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/500*"],
+            "js": ["contentScripts/listCase.js"]
+    }
+      
+         
     ],
+     
      "browser_action": {
          "default_icon": "icon.png",
          "default_popup": "popup.html"
@@ -27,4 +54,5 @@
          "scripts": ["background.js"],
          "persistent": false
      }
+     
  }
