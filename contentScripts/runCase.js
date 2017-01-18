@@ -154,7 +154,7 @@ function assignCase(){
     localStorage.setItem("queue", queue[0].innerText);
     var serviceAccount = localStorage.getItem("serviceAccount");
     
-    if(serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")){
+        if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && ((queue[0].innerText.contains("MAG")))){
         queue[1].click();
     }else{
 
