@@ -23,19 +23,7 @@ minMag = [
     ["Baierl Automotive","baierlautomotive", "Shawn Kriesel","Baierl"],
     ["Barbera's Autoland","barberasautolandcllc", "Andrew Parent","Barbera"],
     ["Bobby Rahal","bobbyrahal", "Shawn Kriesel","Bobby Rahal"],
-    ["Certified Preowned.com","beasley", "Katelyn Whitman", "Certified Preowned.com"],
-    ["Charles Barker Automotive","charlesbarker","Kyle Hand","Charles Barker"],
-    ["Clinton Auto Group","clintonautogroup","Steve Curtis","Clinton"],
-    ["Experience Auto Group","theexperienceautogroup","Andrew Reilly", "Experience"],
-    ["Fletcher Auto Group","fletcherautogroup","Anel Hodzic","Fletcher"],
-    ["Davis Moore Group","davismooreautogroup","Anel Hodzic","Davis Moore"],
-    ["Power of Bowser","powerofbowser","Michelle Jimmo","Power of Bowser"],
-    ["Riverside Auto Group","splashpage1","Nick Bernier","Riverside"],
-    ["Roger Beasley","rogerbeasleyautomotive","Katelyn Whitman", "Roger Beasley"],
-    ["Sherwood of Salisbury","sherwoodofsalisbury","Jordan LC","Sherwood"],
-    ["Price Auto","priceautogroup","Steve Curtis","Price"],
-    ["Maquire Family of Dealerships","maguireautogroup","Jordan LC", "Maquire"],
-    ["Premier Collection","premiercollection","Chris Cota","Premier"],   
+    ["Dwayne Lanes","dwaynelaneautocenter", "Jordan LC", "Dwayne Lane"], 
 ];
 
 getInput();
