@@ -5,6 +5,7 @@ var changeEvent = document.createEvent("HTMLEvents");
 
 document.getElementById('cas4').value = localStorage.getItem("accountName");
 document.getElementById('CF00N32000002wcXT').value = localStorage.getItem("serviceAccount");
+document.getElementById('00N32000002wz4U').value = localStorage.getItem("additionalAcounts");
    
 if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
     document.getElementById("cas11").value = "Internal";

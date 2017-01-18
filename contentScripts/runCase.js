@@ -52,8 +52,18 @@ function getInput() {
     while (testLine(buffer[i]) === false) {
         i ++;
     }
-    localStorage.setItem("serviceAccount", buffer[i]);
-    i++;
+    if(buffer[i].includes("|")){
+        alert("True");
+        var temp = buffer[i].split("|");
+        localStorage.setItem("serviceAccount", temp[0]);
+        localStorage.setItem("additionalAcounts", temp);
+        i++;
+    }else {
+        localStorage.setItem("serviceAccount", buffer[i]);
+        localStorage.setItem("additionalAcounts", "");
+        i++;
+    }
+
 
     while (testLine(buffer[i]) === false) {
         i++;
