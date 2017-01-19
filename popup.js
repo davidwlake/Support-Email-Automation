@@ -11,7 +11,6 @@ function email() {
     chrome.tabs.executeScript({
         file: 'email.js'
     });
-    alert("Hello! I am an alert box!!");
 
 }
 

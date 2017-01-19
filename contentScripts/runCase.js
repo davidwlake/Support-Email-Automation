@@ -23,19 +23,7 @@ minMag = [
     ["Baierl Automotive","baierlautomotive", "Shawn Kriesel","Baierl"],
     ["Barbera's Autoland","barberasautolandcllc", "Andrew Parent","Barbera"],
     ["Bobby Rahal","bobbyrahal", "Shawn Kriesel","Bobby Rahal"],
-    ["Certified Preowned.com","beasley", "Katelyn Whitman", "Certified Preowned.com"],
-    ["Charles Barker Automotive","charlesbarker","Kyle Hand","Charles Barker"],
-    ["Clinton Auto Group","clintonautogroup","Steve Curtis","Clinton"],
-    ["Experience Auto Group","theexperienceautogroup","Andrew Reilly", "Experience"],
-    ["Fletcher Auto Group","fletcherautogroup","Anel Hodzic","Fletcher"],
-    ["Davis Moore Group","davismooreautogroup","Anel Hodzic","Davis Moore"],
-    ["Power of Bowser","powerofbowser","Michelle Jimmo","Power of Bowser"],
-    ["Riverside Auto Group","splashpage1","Nick Bernier","Riverside"],
-    ["Roger Beasley","rogerbeasleyautomotive","Katelyn Whitman", "Roger Beasley"],
-    ["Sherwood of Salisbury","sherwoodofsalisbury","Jordan LC","Sherwood"],
-    ["Price Auto","priceautogroup","Steve Curtis","Price"],
-    ["Maquire Family of Dealerships","maguireautogroup","Jordan LC", "Maquire"],
-    ["Premier Collection","premiercollection","Chris Cota","Premier"],   
+    ["Dwayne Lanes","dwaynelaneautocenter", "Jordan LC", "Dwayne Lane"], 
 ];
 
 getInput();
@@ -64,8 +52,18 @@ function getInput() {
     while (testLine(buffer[i]) === false) {
         i ++;
     }
-    localStorage.setItem("serviceAccount", buffer[i]);
-    i++;
+    if(buffer[i].includes("|")){
+        alert("True");
+        var temp = buffer[i].split("|");
+        localStorage.setItem("serviceAccount", temp[0]);
+        localStorage.setItem("additionalAcounts", temp);
+        i++;
+    }else {
+        localStorage.setItem("serviceAccount", buffer[i]);
+        localStorage.setItem("additionalAcounts", "");
+        i++;
+    }
+
 
     while (testLine(buffer[i]) === false) {
         i++;
@@ -155,6 +153,7 @@ function assignCase(){
      
     var serviceAccount = localStorage.getItem("serviceAccount");
     
+
     if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.contains("MAG")))){
         queue[1].click();
     }else{
