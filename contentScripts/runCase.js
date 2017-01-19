@@ -53,10 +53,9 @@ function getInput() {
         i ++;
     }
     if(buffer[i].includes("|")){
-        alert("True");
         var temp = buffer[i].split("|");
         localStorage.setItem("serviceAccount", temp[0]);
-        localStorage.setItem("additionalAcounts", temp);
+        localStorage.setItem("additionalAcounts", temp.splice(1,temp.length));
         i++;
     }else {
         localStorage.setItem("serviceAccount", buffer[i]);
@@ -154,7 +153,7 @@ function assignCase(){
     var serviceAccount = localStorage.getItem("serviceAccount");
     
 
-    if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.contains("MAG")))){
+    if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.includes("MAG")))){
         queue[1].click();
     }else{
 
