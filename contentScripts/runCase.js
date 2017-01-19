@@ -45,10 +45,10 @@ function getInput() {
     } else {
         localStorage.setItem("internal", "False");
     }
-    
-    localStorage.setItem("accountName", buffer[i]);
+    localStorage.setItem("accountName", buffer[i].replace(/[0-9]/g, ''));
+    localStorage.setItem("dtID", buffer[i].replace( /^\D+/g, ''));
     i ++;
-
+    
     while (testLine(buffer[i]) === false) {
         i ++;
     }
@@ -154,6 +154,7 @@ function assignCase(){
     
 
     if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.includes("MAG")))){
+        localStorage.setItem("runTime", "assign");
         queue[1].click();
     }else{
 

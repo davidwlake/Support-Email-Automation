@@ -11,8 +11,12 @@
      
      "content_scripts": [
     {
-        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/common/data/LookupPage?*"],
+        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/common/data/LookupPage?lkfm=editPage*"],
         "js": ["contentScripts/selectUser.js"]
+    },    
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/common/data/LookupPage?lkpr=*"],
+        "js": ["contentScripts/selectAccount.js"]
     },
     {
         "matches": ["https://dealertrack-production.my.salesforce.com/*/e?retURL=%*"],
