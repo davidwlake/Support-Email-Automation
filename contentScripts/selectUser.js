@@ -71,8 +71,7 @@ window.onload = function () {
         window.frames[1].document.getElementById("Contact_body").scrollIntoView();
 	} 
 };
-
-
+    
 // Returns true is either str1.includes(str2) or str2.includes(str1)
 function doesMatch(str1, str2) {
     if (str2 === null || str1 === null) {

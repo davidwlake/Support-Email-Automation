@@ -1,5 +1,5 @@
 var state = localStorage.getItem("toRun");
-if (state == 1){	
+if (state == 1 && localStorage.getItem("runTime").includes("assign")){	
 var changeEvent = document.createEvent("HTMLEvents");
 changeEvent.initEvent("change", true, true); 
 document.getElementById('newOwn_mlktp').value = "case_queue";

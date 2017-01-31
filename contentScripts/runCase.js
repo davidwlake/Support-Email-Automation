@@ -45,18 +45,20 @@ function getInput() {
     } else {
         localStorage.setItem("internal", "False");
     }
-    
-    localStorage.setItem("accountName", buffer[i]);
+    localStorage.setItem("accountName", buffer[i].replace(/[0-9]/g, ''));
+    localStorage.setItem("dtID", buffer[i].replace( /^\D+/g, ''));
+    if(localStorage.getItem("dtID") == ""){
+        localStorage.setItem("dtID", "NONE");
+    }
     i ++;
-
+    
     while (testLine(buffer[i]) === false) {
         i ++;
     }
     if(buffer[i].includes("|")){
-        alert("True");
         var temp = buffer[i].split("|");
         localStorage.setItem("serviceAccount", temp[0]);
-        localStorage.setItem("additionalAcounts", temp);
+        localStorage.setItem("additionalAcounts", temp.splice(1,temp.length));
         i++;
     }else {
         localStorage.setItem("serviceAccount", buffer[i]);
@@ -154,7 +156,8 @@ function assignCase(){
     var serviceAccount = localStorage.getItem("serviceAccount");
     
 
-    if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.contains("MAG")))){
+    if((serviceAccount.endsWith("fd") || serviceAccount.endsWith("fd ") || serviceAccount.endsWith("fd   ")) && (!(queue[0].innerText.includes("MAG")))){
+        localStorage.setItem("runTime", "assign");
         queue[1].click();
     }else{
 
