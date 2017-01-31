@@ -45,11 +45,9 @@ function getInput() {
     } else {
         localStorage.setItem("internal", "False");
     }
-    localStorage.setItem("accountName", buffer[i].replace(/[0-9]/g, ''));
-    localStorage.setItem("dtID", buffer[i].replace( /^\D+/g, ''));
-    if(localStorage.getItem("dtID") == ""){
-        localStorage.setItem("dtID", "NONE");
-    }
+    localStorage.setItem("accountName", buffer[i].split("|")[0]);
+    localStorage.setItem("dtID", buffer[i].split("|")[1]);
+
     i ++;
     
     while (testLine(buffer[i]) === false) {
