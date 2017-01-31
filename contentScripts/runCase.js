@@ -76,7 +76,7 @@ function getInput() {
 
 // Debugging Alert
     //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
-    testMiniMag();
+//   testMiniMag();
     document.getElementsByName('edit')[0].click();
 
 }
