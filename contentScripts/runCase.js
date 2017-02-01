@@ -76,7 +76,7 @@ function getInput() {
 
 // Debugging Alert
     //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
-    testMiniMag();
+//    testMiniMag();
     document.getElementsByName('edit')[0].click();
 
 }
@@ -101,7 +101,7 @@ function testMiniMag(){
              alert("Account is Mini Mag:\n" + localStorage.getItem("serviceAccount") + "\nPlease assign case to: " + minMag[i][2]);
             } else {
             if(minMag[i][3].match(localStorage.getItem("accountName")) || localStorage.getItem("accountName").match(minMag[i][3])){
-                alert("Possible Mini Mag Please Check:\n" + localStorage.getItem("accountName") + "\nPlease assign case to: " + minMag[i][2]);
+              //  alert("Possible Mini Mag Please Check:\n" + localStorage.getItem("accountName") + "\nPlease assign case to: " + minMag[i][2]);
             }
         }
         }
