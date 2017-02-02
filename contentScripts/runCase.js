@@ -47,6 +47,9 @@ function getInput() {
     }
     localStorage.setItem("accountName", buffer[i].split("|")[0]);
     localStorage.setItem("dtID", buffer[i].split("|")[1]);
+    if(typeof(buffer[i].split("|")[1]) == "undefined"){
+        localStorage.setItem("dtID", buffer[i].split("|")[0]);
+    }
 
     i ++;
     
@@ -89,6 +92,7 @@ function testLine(line) {
         return true;
     }
 }
+    
 
 function testMiniMag(){
     for(i = 0; i < minMag.length; i++){

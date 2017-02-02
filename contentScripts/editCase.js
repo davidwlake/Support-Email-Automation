@@ -3,13 +3,14 @@ if (state == 1){
 var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
 var saveButton = document.getElementById('topButtonRow').getElementsByClassName("btn")[0];
-document.getElementById('cas4_lkwgt').click();
+
 
     
 document.getElementById('cas4').value = localStorage.getItem("dtID");
 document.getElementById('CF00N32000002wcXT').value = localStorage.getItem("serviceAccount");
 document.getElementById('00N32000002wz4U').value = localStorage.getItem("additionalAcounts");
-
+document.getElementById('cas4_lkwgt').click();
+    
 setTimeout(function(){
 if (localStorage.getItem("internal").includes("Internal") || localStorage.getItem("internal").includes("Internal")) {
     document.getElementById("cas11").value = "Internal";

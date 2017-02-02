@@ -46,7 +46,7 @@ window.onload = function () {
     if(i == Object.size(dataBuffer)){  	
     	for (i = 0; i < dataBuffer.length; i++) {
         	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("accountName"))) {
-            	alert("Account Found on Parent level with Different Email");
+            //	alert("Account Found on Parent level with Different Email");
                 dataBuffer[i].dispatchEvent(changeEvent);
                 break;
             }
@@ -58,19 +58,13 @@ window.onload = function () {
     	for (i = 0; i < dataBuffer.length; i++) {
            // alert(dataBuffer[i].innerText + ", "+dataBuffer[i+3].innerText +" ," + dataBuffer[i+8].innerText);
         	if (doesMatch(dataBuffer[i].innerText, localStorage.getItem("caseContact")) && doesMatch(dataBuffer[i+3].innerText,localStorage.getItem("serviceAccount"))) {
-            	alert("Account Found on Service Level with Different Email");
+            //	alert("Account Found on Service Level with Different Email");
             	dataBuffer[i].dispatchEvent(changeEvent);
                 break;
         	} 
     	}
     }
-
- //If No Contact Found   
-    if(i == Object.size(dataBuffer)){
-    	alert("No Account Found:\nPlease Select the Case Contact Below");
-        window.frames[1].document.getElementById("Contact_body").scrollIntoView();
-	} 
-};
+}
     
 // Returns true is either str1.includes(str2) or str2.includes(str1)
 function doesMatch(str1, str2) {
