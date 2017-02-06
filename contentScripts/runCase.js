@@ -1,4 +1,5 @@
 var state = localStorage.getItem("toRun");
+
 if (state == 1){	
 document.addEventListener('keyup', doc_keyUp, false);
 
@@ -16,6 +17,11 @@ if(runTime.includes("Third")){
    localStorage.setItem("runTime", "Done"); 
    document.getElementsByName('newEmail')[0].click(); 
 }
+    
+if(runTime.includes("W2C")){
+    //alert(sfdcPage.entityId);
+    document.getElementsByName('edit')[0].click();
+}
 
 
 function getValues() {
@@ -25,13 +31,14 @@ minMag = [
     ["Bobby Rahal","bobbyrahal", "Shawn Kriesel","Bobby Rahal"],
     ["Dwayne Lanes","dwaynelaneautocenter", "Jordan LC", "Dwayne Lane"], 
 ];
-
 getInput();
 
 function getInput() {
     var buffer = document.getElementById('cas15_ileinner').innerText;
     var i = 0; //index 
     buffer = buffer.split("\n");
+  
+
 
     while (testLine(buffer[i]) === false) {
         i++;
