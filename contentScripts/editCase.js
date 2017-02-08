@@ -2,10 +2,7 @@ var state = localStorage.getItem("toRun");
 if (state == 1){	
 var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
-var saveButton = document.getElementById('topButtonRow').getElementsByClassName("btn")[0];
-
-
-    
+var saveButton = document.getElementById('topButtonRow').getElementsByClassName("btn")[0]; 
 document.getElementById('cas4').value = localStorage.getItem("dtID");
 document.getElementById('CF00N32000002wcXT').value = localStorage.getItem("serviceAccount");
 document.getElementById('00N32000002wz4U').value = localStorage.getItem("additionalAcounts");
