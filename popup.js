@@ -13,12 +13,6 @@ function email() {
 
 }
 
-function web2case(){
-  chrome.tabs.executeScript({
-        file: 'WebMI.js'
-    });
-
-}
 
 function magEmail(){
   chrome.tabs.executeScript({
@@ -40,7 +34,6 @@ document.getElementById('populate').addEventListener('click', populate);
 
 document.getElementById('email').addEventListener('click', email);
 document.getElementById('magEmail').addEventListener('click', magEmail);
-document.getElementById('w2c').addEventListener('click', web2case);
 
 document.getElementById('toRun').addEventListener('click', change);
 
