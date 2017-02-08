@@ -7,13 +7,11 @@ function populate() {
 
 
 function email() {
-
     chrome.tabs.executeScript({
         file: 'email.js'
     });
 
 }
-
 
 
 function magEmail(){

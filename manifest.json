@@ -6,7 +6,7 @@
      "version": "1.0",
 
      "permissions": [
-         "tabs", "<all_urls>", "notifications"
+         "tabs", "<all_urls>", "notifications", "http://*/"
      ],
      
      "content_scripts": [
@@ -21,14 +21,6 @@
     {
         "matches": ["https://dealertrack-production.my.salesforce.com/*/e?retURL=%*"],
         "js": ["contentScripts/editCase.js"]
-    },
-      {
-        "matches": ["https://dealertrack-production.my.salesforce.com/ui/setup/Setup"],
-        "js": ["contentScripts/searchCase.js"]
-      },
-    {
-        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults*"],
-            "js": ["contentScripts/selectCase.js"]
     },
     {
         "matches": ["https://dealertrack-production.my.salesforce.com/*"],
@@ -45,6 +37,14 @@
     {
         "matches": ["https://dealertrack-production.my.salesforce.com/500"],
             "js": ["contentScripts/listCase.js"]
+    },
+         {
+        "matches": ["https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults?searchType=2&sen=001&sen=003&sen=00T&sen=005&sen=00U&sen=500&sen=a6R&sen=00O&str=http%3A%2F%2F*&initialViewMode=detail&fen=001&collapse=1"],
+            "js": ["contentScripts/w2cSearchURL.js"]
+    },
+    {
+        "matches": ["https://dealertrack-production.my.salesforce.com/*?srPos=0&srKp=001"],
+            "js": ["contentScripts/w2cGetSearchInfo.js"]
     }
       
          

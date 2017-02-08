@@ -1,11 +1,16 @@
 var state = localStorage.getItem("toRun");
+
 if (state == 1){	
 document.addEventListener('keyup', doc_keyUp, false);
 
 var runTime = localStorage.getItem("runTime");
 
 if(runTime.includes("Start")){
-    getValues();
+    if(document.getElementById("cas11_ileinner").innerText == "Web"){
+       getW2CValues(); 
+    } else {
+       getValues(); 
+    }  
 }
 
 if(runTime.includes("Second")){
@@ -16,8 +21,34 @@ if(runTime.includes("Third")){
    localStorage.setItem("runTime", "Done"); 
    document.getElementsByName('newEmail')[0].click(); 
 }
+    
+if(runTime.includes("W2C")){
+    document.getElementsByName('edit')[0].click();
+}
+  
+function getW2CValues() {
+    localStorage.setItem("runTime", "W2C"); 
+    localStorage.setItem("W2CCaseURL", document.URL);
+    localStorage.setItem("internal", "Internal");
+
+var buffer = document.getElementById('cas15_ileinner').innerText;  
+    buffer = buffer.split("\n");
+    var i = indexofNextLine(buffer, -1); //index 
+    buffer[i] = buffer[i].replace(">", "");
+    localStorage.setItem("caseContact", buffer[i].split("<")[0]);
+    localStorage.setItem("firstName", buffer[i].split("<")[0].split(" ")[0]);
+    localStorage.setItem("contactEmail", buffer[i].split("<")[1]);
 
 
+//Website
+    i = indexofNextLine(buffer, i);
+
+    localStorage.setItem("W2CWebsite", buffer[i]);
+
+var url = "https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults?searchType=2&sen=001&sen=003&sen=00T&sen=005&sen=00U&sen=500&sen=a6R&sen=00O&str=http%3A%2F%2F"+ buffer[i] +"&initialViewMode=detail&fen=001&collapse=1";
+    window.location.href = url;
+}    
+    
 function getValues() {
 minMag = [
     ["Baierl Automotive","baierlautomotive", "Shawn Kriesel","Baierl"],
@@ -25,13 +56,14 @@ minMag = [
     ["Bobby Rahal","bobbyrahal", "Shawn Kriesel","Bobby Rahal"],
     ["Dwayne Lanes","dwaynelaneautocenter", "Jordan LC", "Dwayne Lane"], 
 ];
-
 getInput();
 
 function getInput() {
     var buffer = document.getElementById('cas15_ileinner').innerText;
     var i = 0; //index 
     buffer = buffer.split("\n");
+  
+
 
     while (testLine(buffer[i]) === false) {
         i++;
@@ -75,6 +107,11 @@ function getInput() {
     
     localStorage.setItem("subject", document.getElementById('cas14_ileinner').innerText);
 
+// Debugging Alert
+    //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
+//    testMiniMag();
+
+
 
     document.getElementsByName('edit')[0].click();
 
@@ -101,7 +138,7 @@ function testMiniMag(){
              alert("Account is Mini Mag:\n" + localStorage.getItem("serviceAccount") + "\nPlease assign case to: " + minMag[i][2]);
             } else {
             if(minMag[i][3].match(localStorage.getItem("accountName")) || localStorage.getItem("accountName").match(minMag[i][3])){
-                alert("Possible Mini Mag Please Check:\n" + localStorage.getItem("accountName") + "\nPlease assign case to: " + minMag[i][2]);
+              //  alert("Possible Mini Mag Please Check:\n" + localStorage.getItem("accountName") + "\nPlease assign case to: " + minMag[i][2]);
             }
         }
         }
@@ -176,3 +213,14 @@ function doc_keyUp(e) {
 }
     
 }
+
+
+function indexofNextLine(rawData, currentIndex){
+    i = currentIndex + 1;
+    patt1 = /\w/g;
+    while(!(rawData[i].match(patt1))){
+        i++;
+    }
+    return i;
+}
+
