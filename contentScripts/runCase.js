@@ -75,9 +75,7 @@ function getInput() {
     
     localStorage.setItem("subject", document.getElementById('cas14_ileinner').innerText);
 
-// Debugging Alert
-    //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
-//   testMiniMag();
+
     document.getElementsByName('edit')[0].click();
 
 }
