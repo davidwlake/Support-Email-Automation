@@ -1,5 +1,5 @@
 var state = localStorage.getItem("toRun");
-if( state == 1){
+if (state == 1) {
     window.onload = function () {
    
 
@@ -17,13 +17,8 @@ if( state == 1){
       
         if(doesMatch(dataBuffer[i+1].innerText, localStorage.getItem("dtID")) || doesMatch(dataBuffer[i].innerText, localStorage.getItem("accountName"))) {
            dataBuffer[i].dispatchEvent(changeEvent);
-           // alert(i);
             break;
         }
-    }
-        
-    if(i+1 == dataBuffer.length){
-        alert("Account Not Found");
     }
     }, 1500);
 }

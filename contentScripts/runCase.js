@@ -77,11 +77,12 @@ function getInput() {
     } else {
         localStorage.setItem("internal", "False");
     }
-    localStorage.setItem("accountName", buffer[i].replace(/[0-9]/g, ''));
-    localStorage.setItem("dtID", buffer[i].replace( /^\D+/g, ''));
-    if(localStorage.getItem("dtID") == ""){
-        localStorage.setItem("dtID", "NONE");
+    localStorage.setItem("accountName", buffer[i].split("|")[0]);
+    localStorage.setItem("dtID", buffer[i].split("|")[1]);
+    if(typeof(buffer[i].split("|")[1]) == "undefined"){
+        localStorage.setItem("dtID", buffer[i].split("|")[0]);
     }
+
     i ++;
     
     while (testLine(buffer[i]) === false) {
@@ -109,6 +110,9 @@ function getInput() {
 // Debugging Alert
     //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
 //    testMiniMag();
+
+
+
     document.getElementsByName('edit')[0].click();
 
 }
@@ -123,6 +127,7 @@ function testLine(line) {
         return true;
     }
 }
+    
 
 function testMiniMag(){
     for(i = 0; i < minMag.length; i++){
@@ -209,6 +214,7 @@ function doc_keyUp(e) {
     
 }
 
+
 function indexofNextLine(rawData, currentIndex){
     i = currentIndex + 1;
     patt1 = /\w/g;
@@ -217,3 +223,4 @@ function indexofNextLine(rawData, currentIndex){
     }
     return i;
 }
+
