@@ -27,7 +27,18 @@ function change(){
     });
 
 }
+function getAccID(){
+  chrome.tabs.executeScript({
+        file: 'getAccID.js'
+    });
 
+}
+function runToyota(){
+  chrome.tabs.executeScript({
+        file: 'change.js'
+    });
+
+}
 
 
 document.getElementById('populate').addEventListener('click', populate);
@@ -37,6 +48,8 @@ document.getElementById('magEmail').addEventListener('click', magEmail);
 
 document.getElementById('toRun').addEventListener('click', change);
 
+document.getElementById('getID').addEventListener('click', getAccID);
+document.getElementById('runToyota').addEventListener('click', runToyota);
 
 
 
