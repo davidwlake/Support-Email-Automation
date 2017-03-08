@@ -1,11 +1,18 @@
 var state = localStorage.getItem("toRun");
 if (state == 1) {
-    window.onload = function () {
-   
-
     var i = 0;
  	var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
+    if(localStorage.getItem("runTime") == "W2C"){
+        var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell ");
+        for (i = 0; i+1 < dataBuffer.length; i++) {
+      
+        if(doesMatch(dataBuffer[i+1].innerText, localStorage.getItem("dtID")) || doesMatch(dataBuffer[i].innerText, localStorage.getItem("accountName"))) {
+           dataBuffer[i].dispatchEvent(changeEvent);
+            break;
+        }
+        }
+    } else {
     window.frames[0].document.getElementById('lkenhmdSEARCH_ALL').click(); 
  
     setTimeout(function(){ window.frames[0].document.getElementsByClassName('btn')[0].click(); }, 400);
@@ -20,7 +27,10 @@ if (state == 1) {
             break;
         }
     }
-    }, 1500);
+    }, 1500); 
+    }
+        
+    
 }
 
     
@@ -35,4 +45,4 @@ function doesMatch(str1, str2) {
         }
     }
 }
-}
+

@@ -45,10 +45,6 @@
     {
         "matches": ["https://dealertrack-production.my.salesforce.com/*?srPos=0&srKp=001"],
             "js": ["contentScripts/w2cGetSearchInfo.js"]
-    },
-    {
-        "matches": ["http://*/*"],
-            "js": ["contentScripts/getSiteInfo.js"]
     }
          
     ],

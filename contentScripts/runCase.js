@@ -6,11 +6,29 @@ document.addEventListener('keyup', doc_keyUp, false);
 var runTime = localStorage.getItem("runTime");
 
 if(runTime.includes("Start")){
-    if(document.getElementById("cas11_ileinner").innerText == "Web"){
-       getW2CValues(); 
+ //   Dealer.com Support Request http://www.dealer.com/supportform_firstmovers/
+    
+    var subject = document.getElementById("cas14_ileinner").innerText;
+    
+    if(subject.includes("supportform_firstmovers")){
+        getFirstMoversValues();
+    } else if(subject == "Somthing for WEB2Case"){
+        getW2CValues();
     } else {
-       getValues(); 
-    }  
+        getValues();
+    }
+    /*
+    switch(subject) {
+    case subject.includes("supportform_firstmovers"):
+        alert("worked");
+        getFirstMoversValues();
+        break;
+    case subject == "Somthing for WEB2Case":
+        getW2CValues();
+        break;
+    default:
+       // getValues();
+    } */
 }
 
 if(runTime.includes("Second")){
@@ -26,8 +44,26 @@ if(runTime.includes("W2C")){
     document.getElementsByName('edit')[0].click();
 }
   
+function getFirstMoversValues (){
+    localStorage.setItem("W2CCaseURL", document.URL);
+    localStorage.setItem("internal", "Internal");
+    
+    var buffer = document.getElementById("cas15_ileinner").innerText.split(": ");
+
+    localStorage.setItem("caseContact", buffer[3].replace(" \nEmail",""));
+    localStorage.setItem("firstName", buffer[3].replace(" \nEmail","").split(" ")[0]);
+    localStorage.setItem("contactEmail", buffer[4].replace(" \nPhone",""));
+//Line to Change    
+    localStorage.setItem("W2CWebsite", buffer[8].replace("\nRequest Type"," "));
+    var webURL = buffer[8].replace("\nRequest Type","");
+    webURL = webURL.replace("http://","")
+    webURL = webURL.replace(".com/",".com");
+    
+    var url = "https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults?searchType=2&sen=001&sen=003&sen=00T&sen=005&sen=00U&sen=500&sen=a6R&sen=00O&str=http%3A%2F%2F"+ webURL +"&initialViewMode=detail&fen=001&collapse=1";
+    window.location.href = url;
+    
+}
 function getW2CValues() {
-    localStorage.setItem("runTime", "W2C"); 
     localStorage.setItem("W2CCaseURL", document.URL);
     localStorage.setItem("internal", "Internal");
 
