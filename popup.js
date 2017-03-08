@@ -21,6 +21,11 @@ function magEmail(){
 
 }
 
+function createCase(){
+  chrome.tabs.executeScript({
+        file: 'createCase.js'
+    });} 
+
 function change(){
   chrome.tabs.executeScript({
         file: 'change.js'
@@ -31,21 +36,11 @@ function change(){
 
 
 document.getElementById('populate').addEventListener('click', populate);
-
 document.getElementById('email').addEventListener('click', email);
 document.getElementById('magEmail').addEventListener('click', magEmail);
-
 document.getElementById('toRun').addEventListener('click', change);
+document.getElementById('createCase').addEventListener('click', createCase);
 
-
-
-
-
-/* document.getElementById('createCase').addEventListener('click', createCase);
-function createCase(){
-  chrome.tabs.executeScript({
-        file: 'createCase.js'
-    });} */
 
 
 
