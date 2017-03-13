@@ -57,6 +57,12 @@ function getFirstMoversValues (){
         buffer[i] = buffer[i].replace("http://", "");
         buffer[i] = buffer[i].replace("https://", "");
         buffer[i] = buffer[i].replace(".com/",".com");
+        if(buffer[i].includes(".com") && (buffer[i].includes("www.") == false)){
+            temp = buffer[i].split(': ');
+            temp[1] = "www."+temp[1];
+            buffer[i] = temp[0] + ': ' + temp[1];
+        }
+        
         
         switch(buffer[i].split(":")[0]){
             case 'Name':

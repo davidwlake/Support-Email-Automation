@@ -70,7 +70,7 @@ function writeFirstMovers() {
     var title = '';
     var emails = localStorage.getItem("emails");
     emails = emails + "; toyotafirstmovers@dealer.com";
-    var support = "support@dealer.com:DDC-Support";
+     var support = "majoraccountsupport@dealer.com:DDC-Support MAG";
     document.getElementById('p26').value = support;
 
     document.getElementById('p24').value = localStorage.getItem("contactEmail") + "; " + emails;
