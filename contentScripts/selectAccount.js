@@ -3,10 +3,9 @@ if (state == 1) {
     var i = 0;
  	var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
-    if(localStorage.getItem("runTime") == "W2C"){
+    if(localStorage.getItem("flag") == "TW2C"){
         var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell ");
         for (i = 0; i+1 < dataBuffer.length; i++) {
-      
         if(doesMatch(dataBuffer[i+1].innerText, localStorage.getItem("dtID")) || doesMatch(dataBuffer[i].innerText, localStorage.getItem("accountName"))) {
            dataBuffer[i].dispatchEvent(changeEvent);
             break;

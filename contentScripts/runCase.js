@@ -11,10 +11,13 @@ if(runTime.includes("Start")){
     var subject = document.getElementById("cas14_ileinner").innerText;
     
     if(subject.includes("supportform_firstmovers")){
+        localStorage.setItem("flag", "TW2C");
         getFirstMoversValues();
     } else if(subject == "Somthing for WEB2Case"){
+        localStorage.setItem("flag", "W2C");
         getW2CValues();
     } else {
+        localStorage.setItem("flag", "-1");
         getValues();
     }
     /*
@@ -47,25 +50,37 @@ if(runTime.includes("W2C")){
 function getFirstMoversValues (){
     localStorage.setItem("W2CCaseURL", document.URL);
     localStorage.setItem("internal", "Internal");
+    localStorage.setItem("subject", document.getElementById("cas14_ileinner").innerText);
     
-    var buffer = document.getElementById("cas15_ileinner").innerText.split(": ");
-
-    localStorage.setItem("caseContact", buffer[3].replace(" \nEmail",""));
-    localStorage.setItem("firstName", buffer[3].replace(" \nEmail","").split(" ")[0]);
-    localStorage.setItem("contactEmail", buffer[4].replace(" \nPhone",""));
-//Line to Change    
-    localStorage.setItem("W2CWebsite", buffer[8].replace("\nRequest Type"," "));
-    var webURL = buffer[8].replace("\nRequest Type","");
-    webURL = webURL.replace("http://","")
-    webURL = webURL.replace(".com/",".com");
+   var buffer = document.getElementById("cas15_ileinner").innerText.split("\n");
+    for (i = 0; i < buffer.length; i++){
+        buffer[i] = buffer[i].replace("http://", "");
+        buffer[i] = buffer[i].replace("https://", "");
+        buffer[i] = buffer[i].replace(".com/",".com");
+        
+        switch(buffer[i].split(":")[0]){
+            case 'Name':
+                localStorage.setItem("caseContact", buffer[i].split(': ')[1]);
+                break;
+            case 'Email':
+                localStorage.setItem("contactEmail", buffer[i].split(': ')[1]);
+                break;
+            case 'Dealership Url':
+                localStorage.setItem("W2CWebsite", buffer[i].split(': ')[1]);
+                break;
+            default:
+                break;
+        }
+    }// End For
     
-    var url = "https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults?searchType=2&sen=001&sen=003&sen=00T&sen=005&sen=00U&sen=500&sen=a6R&sen=00O&str=http%3A%2F%2F"+ webURL +"&initialViewMode=detail&fen=001&collapse=1";
+    var url = "https://dealertrack-production.my.salesforce.com/_ui/search/ui/UnifiedSearchResults?searchType=2&sen=001&sen=003&sen=00T&sen=005&sen=00U&sen=500&sen=a6R&sen=00O&str=http%3A%2F%2F"+ localStorage.getItem("W2CWebsite") +"&initialViewMode=detail&fen=001&collapse=1";
     window.location.href = url;
     
 }
 function getW2CValues() {
     localStorage.setItem("W2CCaseURL", document.URL);
     localStorage.setItem("internal", "Internal");
+    localStorage.setItem("subject", document.getElementById("cas14_ileinner").innerText);
 
 var buffer = document.getElementById('cas15_ileinner').innerText;  
     buffer = buffer.split("\n");
