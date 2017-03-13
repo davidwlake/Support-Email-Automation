@@ -28,14 +28,13 @@ function change(){
 
 }
 
-
-
 document.getElementById('populate').addEventListener('click', populate);
 
 document.getElementById('email').addEventListener('click', email);
 document.getElementById('magEmail').addEventListener('click', magEmail);
 
 document.getElementById('toRun').addEventListener('click', change);
+
 
 
 
