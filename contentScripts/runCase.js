@@ -57,7 +57,7 @@ function getFirstMoversValues (){
         buffer[i] = buffer[i].replace("http://", "");
         buffer[i] = buffer[i].replace("https://", "");
         buffer[i] = buffer[i].replace(".com/",".com");
-        if(buffer[i].includes(".com") && (buffer[i].includes("www.") == false)){
+        if(buffer[i].includes(".com") && (buffer[i].includes("www.") == false) && (buffer[i].includes("@") == false)){
             temp = buffer[i].split(': ');
             temp[1] = "www."+temp[1];
             buffer[i] = temp[0] + ': ' + temp[1];
@@ -67,6 +67,7 @@ function getFirstMoversValues (){
         switch(buffer[i].split(":")[0]){
             case 'Name':
                 localStorage.setItem("caseContact", buffer[i].split(': ')[1]);
+                localStorage.setItem("firstName", buffer[i].split(': ')[1].split(" ")[0]);
                 break;
             case 'Email':
                 localStorage.setItem("contactEmail", buffer[i].split(': ')[1]);
