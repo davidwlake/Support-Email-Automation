@@ -30,7 +30,8 @@ if (localStorage.getItem("internal").includes("Internal") || localStorage.getIte
 } else {
     document.getElementById('cas3').value = localStorage.getItem("caseContact");
     document.getElementById('cas3_lkwgt').click();
-    setTimeout(function(){ saveButton.click(); }, 2000);
+    setTimeout(function(){ saveButton.click();
+    }, 2000);
 }
 
 }, 3500);

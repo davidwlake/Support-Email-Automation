@@ -3,6 +3,7 @@ if (state == 1) {
     var i = 0;
  	var changeEvent = document.createEvent("HTMLEvents");
     changeEvent.initEvent("click", true, true); 
+    
     if(localStorage.getItem("flag") == "TW2C"){
         var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell ");
         for (i = 0; i+1 < dataBuffer.length; i++) {
@@ -12,10 +13,9 @@ if (state == 1) {
         }
         }
     } else {
-    window.frames[0].document.getElementById('lkenhmdSEARCH_ALL').click(); 
- 
-    setTimeout(function(){ window.frames[0].document.getElementsByClassName('btn')[0].click(); }, 400);
-   // alert(dataBuffer[0]);
+    setTimeout(function(){window.frames[0].document.getElementById('lkenhmdSEARCH_ALL').click();}, 500);
+    
+    setTimeout(function(){ window.frames[0].document.getElementsByClassName('btn')[0].click(); }, 1500);
     
     setTimeout(function(){ 
      var dataBuffer = window.frames[1].document.getElementsByClassName(" dataCell ");
