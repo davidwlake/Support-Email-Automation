@@ -9,7 +9,7 @@ if (state == 1) {
         for (i = 0; i+1 < dataBuffer.length; i++) {
         if(doesMatch(dataBuffer[i+1].innerText, localStorage.getItem("dtID")) || doesMatch(dataBuffer[i].innerText, localStorage.getItem("accountName"))) {
            dataBuffer[i].dispatchEvent(changeEvent);
-            break;
+           break;
         }
         }
     } else {
