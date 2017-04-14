@@ -39,8 +39,12 @@ if(runTime.includes("Second")){
 }
 
 if(runTime.includes("Third")){
-   localStorage.setItem("runTime", "Done"); 
+   localStorage.setItem("runTime", "Fourth"); 
    document.getElementsByName('newEmail')[0].click(); 
+}
+    
+if(runTime.includes("Fourth")){
+    document.getElementsByName("assign_category")[0].click();
 }
     
 if(runTime.includes("W2C")){
@@ -169,8 +173,6 @@ function getInput() {
     //alert(localStorage.getItem("accountName") + "\n" + localStorage.getItem("serviceAccount") + "\n" + localStorage.getItem("caseContact") + "\n" + localStorage.getItem("subject"));
 //    testMiniMag();
 
-
-
     document.getElementsByName('edit')[0].click();
 
 }
@@ -237,7 +239,7 @@ function contactLine(str){
 
 }
     
-   
+ 
 }
 
 function assignCase(){
@@ -256,7 +258,7 @@ function assignCase(){
         queue[1].click();
     }else{
 
-        localStorage.setItem("runTime", "Done");
+        localStorage.setItem("runTime", "Fourth");
         document.getElementsByName('newEmail')[0].click();
     }
      
