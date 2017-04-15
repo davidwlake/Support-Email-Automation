@@ -10,5 +10,4 @@ document.getElementById('phSearchInput').value = retVal, setTimeout(function(){
         }, 500);
 localStorage.setItem("runTime", "Start");
     
-    //Swag
 }
