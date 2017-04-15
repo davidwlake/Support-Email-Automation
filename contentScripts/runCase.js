@@ -45,6 +45,8 @@ if(runTime.includes("Third")){
     
 if(runTime.includes("Fourth")){
     document.getElementsByName("assign_category")[0].click();
+    localStorage.setItem("runTime", "Done"); 
+
 }
     
 if(runTime.includes("W2C")){
