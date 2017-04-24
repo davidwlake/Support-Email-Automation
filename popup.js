@@ -28,10 +28,15 @@ function change(){
 
 }
 
+function lookUP(){
+    window.open("form.html");
+}
+
 document.getElementById('populate').addEventListener('click', populate);
 
 document.getElementById('email').addEventListener('click', email);
 document.getElementById('magEmail').addEventListener('click', magEmail);
+document.getElementById('searchContact').addEventListener('click', lookUP);
 
 document.getElementById('toRun').addEventListener('click', change);
 
