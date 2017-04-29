@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>Page Title</title>
     <link rel="stylesheet" href="lib\jquery-ui.css" />
     <script src="lib\jquery.js"></script>
     <script src="lib\jquery-ui.js"></script>
     <script src="lib\functions.js"></script>
-
 </head>
 <body>
 
 <h1 id="first">Contact Page</h1>
+
+<div class="contentBox1">    
+    <label for="name" >Name:</label>
+    <input type="text" class="input" id="name" value="">
+    <br>  
+    <label for="email">Email:</label>
+    <input type="text" class="input" id="email" value="">
     
-<label for="name">Name:</label>
-<input type="text" id="name" value="">
-<br>  
-<label for="email">Email:</label>
-<input type="text" id="email" value="">
+    <input type="submit" id="search" value="Search">
+    <div id="alert"></div>
+</div>
+
+<table id="result" class="table">
+</table>
     
-<input type="submit" id="search" value="Search">
 
 </body>
 </html>

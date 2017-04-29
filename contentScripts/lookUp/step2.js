@@ -12,6 +12,7 @@ for(i = 1; i < (temp.length - 2); i++){
     }
 }
 
-chrome.storage.local.get("buffer1", function (obj) {
-    console.log(obj.buffer1[0]);
-});
+chrome.storage.local.set({"buffer2": table}, function() {
+    window.close();
+}); 
+

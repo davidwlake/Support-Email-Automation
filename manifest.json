@@ -3,7 +3,7 @@
 
      "name": "Support Inbox Automation",
      "description": "Support Inbox Automation",
-     "version": "1.0",
+     "version": "6.6",
 
      "permissions": [
          "tabs", "<all_urls>", "notifications", "storage", "http://*/"
